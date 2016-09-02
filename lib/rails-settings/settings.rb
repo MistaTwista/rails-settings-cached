@@ -117,9 +117,9 @@ module RailsSettings
         Default.source(filename)
       end
 
-      def rails_initialized?
-        Rails.application && Rails.application.initialized?
-      end
+      # def rails_initialized?
+      #   Rails.application && Rails.initialized?
+      # end
     end
   end
 end

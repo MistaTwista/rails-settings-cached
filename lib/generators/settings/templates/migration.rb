@@ -1,6 +1,6 @@
-class CreateSettings < ActiveRecord::Migration
+class Create<%= class_name %> < ActiveRecord::Migration
   def self.up
-    create_table :settings do |t|
+    create_table :<%= file_name %> do |t|
       t.string  :var,        null: false
       t.text    :value,      null: true
       t.integer :thing_id,   null: true
@@ -8,10 +8,10 @@ class CreateSettings < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :settings, %i(thing_type thing_id var), unique: true
+    add_index :<%= file_name %>, %i(thing_type thing_id var), unique: true
   end
 
   def self.down
-    drop_table :settings
+    drop_table :<%= file_name %>
   end
 end

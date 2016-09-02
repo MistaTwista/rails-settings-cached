@@ -1,4 +1,18 @@
+require 'pry-rails'
+require 'pry-byebug'
+require 'pry-stack_explorer'
+
 module RailsSettings
+  class << self
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    def configure
+      yield(configuration) if block_given?
+    end
+  end
+
   class Base < Settings
     def rewrite_cache
       Rails.cache.write(cache_key, value)

@@ -27,8 +27,8 @@ module Settings
 
     def install_setting
       template 'model.rb', File.join('app/models', class_path, "#{file_name}.rb")
-      template 'app.yml', File.join('config', "app.yml")
-      migration_template 'migration.rb', 'db/migrate/create_settings.rb'
+      template 'app.yml', File.join('config', 'app.yml')
+      migration_template 'migration.rb', "db/migrate/create_#{file_name}.rb"
     end
   end
 end
